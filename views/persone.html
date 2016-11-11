@@ -12,7 +12,7 @@
 	<h1>
 	   {{d.cognome|uppercase}} {{d.nome|uppercase}} <span ng-hide="d.cognome">Nuova persona</span>
 	</h1>
-	<form ng-submit="save()" class="form-horizontal">
+	<form ng-submit="save()" class="well">
 		<p class="form-group">
 			<label>Cognome </label>
 			<input class="form-control" ng-model="d.cognome" autofocus />
@@ -23,5 +23,5 @@
 			<a accesskey="n" class="btn btn-success" href="#/persone/new"><i class="fa fa-file-o"></i> Nuovo</a>
 			<a accesskey="l" class="btn btn-default" href="#/persone"><i class="fa fa-table"></i> Elenco</a>
 			<a accesskey="x" class="btn btn-danger" ng-click="remove()"><i class="fa fa-trash"></i> Elimina</a>
-	</article>
+	</form>
 </section>
