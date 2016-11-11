@@ -1,6 +1,11 @@
 <section>
 	<h1>
-	   Opzioni
+	   Opzioni 
+	   <span style="zoom:75%">
+		<button ng-click="addRow()" class="btn btn-small btn-success" ><i class="fa fa-file-o"></i></button>
+		<button ng-click="deleteRow()" class="btn btn-small btn-danger" ><i class="fa fa-trash-o"></i></button>
+	   </span>
 	</h1>
 	<div ui-grid="gridOptions" class="myGrid"></div>
+	
 </section>

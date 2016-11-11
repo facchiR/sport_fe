@@ -15,6 +15,10 @@ app.conf=function ($routeProvider) {
     .when('/opzioni', { 
       controller: 'OpzioniController', 
       templateUrl: 'views/opzioni.html' 
+    })
+    .when('/opzioni/:opz', { 
+      controller: 'OpzioniController', 
+      templateUrl: 'views/opzioni.html' 
     })	
     .otherwise({ 
       redirectTo: '/' 
