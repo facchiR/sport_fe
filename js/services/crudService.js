@@ -16,7 +16,7 @@ app.service('crudService', function($http, limitToFilter) {
 			if (D._id){
 				$http.put(S+D._id,D).success(callback);  
 			}else{
-				$http.post(S,D).success(callback);  
+				$http.post(S,D).success(callback).error(onError);  
 			}
 		},
 		fnd: function(D,callback){
@@ -31,12 +31,8 @@ app.service('crudService', function($http, limitToFilter) {
 		del: function(D,callback) {
 			if (!D) return [{'error':'Nessun dato da inserire.'}];
 			if (!confirm('I dati selezionati verranno eliminati. Confermi?')){return};
-			$http({
-				method:'DELETE',
-				url:S+D._id+'?rev='+D._rev, 
-				data: D
-				//headers: {'Origin': '127.0.0.1:5984','Host': '127.0.0.1:5984','If-Match': D._rev}
-			}).success(callback).error(onError);
+			D._deleted=true
+			$http.post(S,D).success(callback).error(onError);  
 		}
 	}
 });

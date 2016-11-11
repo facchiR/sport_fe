@@ -11,7 +11,11 @@ app.conf=function ($routeProvider) {
     .when('/persone/:id', { 
       controller: 'PersoneController', 
       templateUrl: 'views/persone.html' 
-    }) 	
+    }) 
+    .when('/opzioni', { 
+      controller: 'OpzioniController', 
+      templateUrl: 'views/opzioni.html' 
+    })	
     .otherwise({ 
       redirectTo: '/' 
     }); 

@@ -7,6 +7,9 @@ app.controller('AppController', ['swInfo', function( swInfo ) {
        },{
         url:"#/persone",
         title:"Persone"
+       },{
+        url:"#/opzioni",
+        title:"Opzioni"
        }
     ];
     vm.ver = swInfo.version;

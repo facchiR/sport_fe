@@ -1,4 +1,4 @@
-app.controller('PersoneController', ['$scope', 'crudService','$routeParams','$http', function($scope, crudService,$routeParams,$http) {
+app.controller('OpzioniController', ['$scope', 'crudService','$routeParams','$http', function($scope, crudService,$routeParams,$http) {
     var vm = $scope;
 	vm.id= $routeParams && $routeParams.id || false;
     vm.data = [];
@@ -35,12 +35,3 @@ app.controller('PersoneController', ['$scope', 'crudService','$routeParams','$ht
     };	
 	vm.init();
 }]);
-
-
-/* TODO:
-
-autofocus
-notifiche 
-pulsanti salva, elimina eccetera quando necessario
-
-*/
