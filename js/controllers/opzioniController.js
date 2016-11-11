@@ -2,10 +2,11 @@ app.controller('OpzioniController', ['$scope', 'crudService','$routeParams','$ht
     var vm = $scope;
 	vm.id= $routeParams && $routeParams.id || false;
     vm.data = [];
+	vm.gridOptions={}
     var populateData = function(response){
         var data = response.data && response.data.docs ||[];
 		vm.data=JSON.parse(JSON.stringify(data));
-		if (vm.id) vm.d=vm.data[0] || {};
+		vm.gridOptions.data=vm.data
     }
     vm.read = function(){
 		var fnd={"cat":"persone"};
@@ -28,10 +29,6 @@ app.controller('OpzioniController', ['$scope', 'crudService','$routeParams','$ht
     };
     vm.init = function(){
         vm.read();
-		var pr=function(){
-			$('[ng-model="cognome"]').focus()
-		}
-		$(pr)
     };	
 	vm.init();
 }]);
