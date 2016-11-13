@@ -1,4 +1,4 @@
-var app = angular.module('ngschool', ['ngRoute','ui.grid']);
+var app = angular.module('ngschool', ['ngRoute','ui.grid','ui.grid.edit', 'ui.grid.rowEdit', 'ui.grid.cellNav']);
 app.conf=function ($routeProvider) { 
   $routeProvider 
     .when('/', { 
