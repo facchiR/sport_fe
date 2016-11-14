@@ -24,4 +24,10 @@
 			<a accesskey="l" class="btn btn-default" href="#/persone"><i class="fa fa-table"></i> Elenco</a>
 			<a accesskey="x" class="btn btn-danger" ng-click="remove()"><i class="fa fa-trash"></i> Elimina</a>
 	</form>
+	<article ng-if="d.emails">
+	<h3>Emails:</h3>
+	<ul>
+		<li ng-repeat="e in d.emails">{{e.email}} <small>{{e.note}}</small></li>
+	</ul>
+	</article>
 </section>
