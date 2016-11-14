@@ -1,10 +1,16 @@
-app.controller('OpzioniController', ['$scope', 'crudService','$routeParams','$http','$q','$interval', function($scope, crudService,$routeParams,$http,$q,$interval) {
+app.controller('OpzioniController', ['$scope', 'crudService','$routeParams','$http','$q','$interval','uiGridConstants', function($scope, crudService,$routeParams,$http,$q,$interval,uiGridConstants) {
 	var vm = $scope;
+	window.vm=vm;
 	vm.cat=$routeParams && $routeParams.opz || 'classi';
 	vm.id= false;
     vm.data = [];
 	vm.gridOptions={
 		enableCellEditOnFocus: true,
+		enableRowSelection: true,
+		selectionRowHeaderWidth: 35,
+		rowHeight: 35,		
+		enableSelectAll: false,
+		multiSelect:false,
 		onRegisterApi:function(gridApi){
 			vm.gridApi = gridApi;
 			gridApi.rowEdit.on.saveRow(vm, vm.save);
@@ -26,6 +32,19 @@ app.controller('OpzioniController', ['$scope', 'crudService','$routeParams','$ht
 					{ name: 'classe'},
 					{ name: 'livello',type:'number',width:70},
 					{name:'sezione',width:90}
+				];
+				break;				
+			case (vm.cat=='discipline'):
+				vm.gridOptions.columnDefs=[
+					{ name: 'disciplina'},
+					{ name: 'abbr',displayName:'Abbr.',width:90}
+				];
+				break;
+			case (vm.cat=='anniscolastici'):
+				vm.gridOptions.columnDefs=[
+					{ name: 'annoscolastico',displayName:'Anno Scolastico'},
+					{ name: 'dal',type:'date',width:130,cellFilter: 'date:"dd/MM/yyyy"'},
+					{ name: 'al',type:'date',width:130,cellFilter: 'date:"dd/MM/yyyy"'}
 				];
 				break;				
 		}
@@ -53,9 +72,12 @@ app.controller('OpzioniController', ['$scope', 'crudService','$routeParams','$ht
 			promise.resolve(); //promise.reject();
 		});
     };
-	vm.remove = function(){		
-        crudService.del(vm.d,function(r){
-			window.location="#/"+vm.cat+"/"
+	vm.remove = function(){	
+		var d=vm.gridApi.grid.selection.lastSelectedRow.entity
+		vm.data.splice(vm.data.indexOf(d),1)	
+        crudService.del(d,function(r){
+			//window.location="#/"+vm.cat+"/"
+			
 		});
     };
     vm.init = function(){
