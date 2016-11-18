@@ -8,6 +8,7 @@
 		</li>
 	</ul>
 </section>
+
 <section ng-if="id">
 	<h1>
 	   {{d.cognome|uppercase}} {{d.nome|uppercase}} <span ng-hide="d.cognome">Nuova persona</span>
@@ -24,10 +25,11 @@
 			<a accesskey="l" class="btn btn-default" href="#/persone"><i class="fa fa-table"></i> Elenco</a>
 			<a accesskey="x" class="btn btn-danger" ng-click="remove()"><i class="fa fa-trash"></i> Elimina</a>
 	</form>
-	<article ng-if="d.emails">
-	<h3>Emails:</h3>
-	<ul>
-		<li ng-repeat="e in d.emails">{{e.email}} <small>{{e.note}}</small></li>
-	</ul>
-	</article>
+	<h3>Email
+	   <span style="zoom:75%" class="pull-right">
+		<button ng-click="createEmail()" class="btn btn-small btn-success"><i class="fa fa-file-o"></i></button>
+		<button ng-click="removeEmail()" class="btn btn-small btn-danger" ><i class="fa fa-trash-o"></i></button>
+	   </span>
+	</h3>
+	<div id="gridEmails" ui-grid="gridEmailsOptions" class="grd" ui-grid-edit ui-grid-cellNav ui-grid-row-edit ui-grid-selection></div>
 </section>
