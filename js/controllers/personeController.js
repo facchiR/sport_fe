@@ -22,7 +22,8 @@ app.controller('PersoneController', ['$scope', 'crudService','$routeParams','$ht
 		vm.data=JSON.parse(JSON.stringify(data));
 		if (vm.id){
 			vm.d=vm.data[0] || {};
-			vm.gridEmailsOptions.data=vm.d.emails
+			if (!vm.d.emails) vm.d.emails=[];
+			vm.gridEmailsOptions.data=vm.d.emails;
 		}
 		
     };
