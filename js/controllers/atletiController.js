@@ -31,7 +31,7 @@ app.controller('AtletiController', ['$scope', 'AtletiService', //'$routeParams',
     };
 
     vm.save = function(item){
-        AtletiService.seve(item,vm.loadItem);
+        AtletiService.save(item,vm.loadItem);
     };
     
     vm.delete = function(id){

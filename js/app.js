@@ -30,5 +30,5 @@ app.config(['$httpProvider', function($httpProvider) {
 
 app.constant("settings", {
     "ver": "1.0.0",
-    "url": "http://localhost:88/sport_be/",
+    "url": "http://dev/users/c06/sport_be/",
 });

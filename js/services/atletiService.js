@@ -29,7 +29,7 @@ app.service('AtletiService', ['$http', 'settings', function($http, settings) {
     return {
         getList: getList,
         getItem: getItem,
-        delItem: getList,
-        saveItem: getList
+        delItem: delItem,
+        saveItem: saveItem
     };
 }]);

@@ -1,8 +1,25 @@
-<div ng-repeat="(key,item) in items">
-    id: [{{ item.id }}],
-    nome: [{{ item.nome }}],
-    cf: [{{ item.cf }}],
-    telefono: [{{ item.telefono }}],
-    nato/a il: [{{ item.datanascita || date }}],
-    sesso: [{{ item.sesso }}],
-</div>
+<h1>Lista degli atleti</h1>
+<table>
+    <thead>
+    <th>ID</th>
+    <th>NOME</th>
+    <th>SESSO</th>
+    <th>CODICE FISCALE</th>
+    <th>TELEFONO</th>
+    <th>DATA DI NASCITA</th>
+    <th>AZIONI</th>
+</thead>
+<tbody>
+    <tr ng-repeat="item in items">
+        <td>{{ item.id}}</td>
+        <td>{{ item.nome}}</td>
+        <td>{{ item.sesso}}</td>
+        <td>{{ item.cf}}</td>
+        <td>{{ item.telefono}}</td>
+        <td>{{ item.datanascita}}</td>
+        <td>
+            <button class="btn btn-sm btn-danger" ng-click=delete(item.id)">Cancella</button>
+        </td>
+    </tr>
+</tbody>
+</table>
