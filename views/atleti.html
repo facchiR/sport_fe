@@ -1,5 +1,23 @@
-<h1>Lista degli atleti</h1>
-<table>
+<h1>Lista degli atleti...</h1>
+
+<form>
+    <div>
+        <label>Nome</label>
+        <input ng-model="item.nome" type="text" placeholder="Inserire Nome" />
+    </div>
+    <div><label>Sesso</label>
+        <select  ng-model="item.sesso">
+            <option value="F">F</option>
+            <option value="M">M</option>
+        </select>
+
+        <div><label>Codice Fiscale</label><input ng-model="item.cf" type="text" placeholder="Inserire Codice Fiscale"/></div>
+        <div><label>Telefono</label><input ng-model="item.telefono" type="number" placeholder="Inserire Telefono"/></div>
+        <div><label>Data di nascita</label><input ng-model="item.datanascita" type="date" placeholder="Inserire Data Nascita"/></div>
+        <button ng-click="save()">Salva</button>
+</form>
+
+<table class="table table-bordered">
     <thead>
     <th>ID</th>
     <th>NOME</th>
@@ -10,16 +28,17 @@
     <th>AZIONI</th>
 </thead>
 <tbody>
-    <tr ng-repeat="item in items">
-        <td>{{ item.id}}</td>
-        <td>{{ item.nome}}</td>
-        <td>{{ item.sesso}}</td>
-        <td>{{ item.cf}}</td>
-        <td>{{ item.telefono}}</td>
-        <td>{{ item.datanascita}}</td>
+    <tr ng-repeat="i in items">
+        <td>{{ i.id}}</td>
+        <td>{{ i.nome}}</td>
+        <td>{{ i.sesso}}</td>
+        <td>{{ i.cf}}</td>
+        <td>{{ i.telefono}}</td>
+        <td>{{ i.datanascita}}</td>
         <td>
-            <button class="btn btn-sm btn-danger" ng-click=delete(item.id)">Cancella</button>
+            <button class="btn btn-sm btn-danger" ng-click="delete(item.id)">Cancella</button>
         </td>
     </tr>
+
 </tbody>
 </table>

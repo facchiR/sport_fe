@@ -17,11 +17,12 @@ app.service('AtletiService', ['$http', 'settings', function($http, settings) {
     };
     
     var delItem = function(id,callback){
-        $http.get(url,{act:'del',id:id}).then(
+		$http.get(url+"?act=del&id="+id).then(
+        //$http.get(url,{act:'del',id:id}).then(
                 callback, onError);
     };
 
-        var saveItem = function(item,callback){
+	var saveItem = function(item,callback){
         $http.post(url,{item:item}).then(
                 callback, onError);
     };
